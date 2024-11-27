@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Motorycle</title>
+    <style>
+        @keyframes move {
+            0% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(20px);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 主页面 */
+        #Motorcycle {
+            position: relative;
+            overflow-y: scroll;
+            scroll-snap-type: y mandatory;
+            /* 强制Y轴滚动捕捉 */
+            -webkit-overflow-scrolling: touch;
+            /* 优化移动端滚动 */
+            width: 100%;
+            height: 100vh;
+
+            section {
+                scroll-snap-align: start;
+                /* 捕捉点在每个section的开始 */
+                width: 100%;
+                height: 100%;
+            }
+
+            .one {
+                padding: 2% 10% 0 10%;
+
+                /* 导航栏 */
+                .topBar {
+
+                    opacity: 0;
+                    transform: translateY(-100%);
+                    /* 隐藏元素，以确保在透明度变化前不会显示 */
+                    transition: opacity 1s ease-out, transform 1s ease-out;
+                    /* 定义透明度变化的过渡效果 */
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    align-items: center;
+                    height: 10%;
+                    width: 100%;
+
+                    .leftName {
+                        color: red;
+                        font: normal 700 5vh Georgia, serif;
+                        width: 20%;
+                    }
+
+                    ul {
+                        list-style-type: none;
+                        margin: 0;
+                        text-align: center;
+
+                        li {
+                            transition: all .6s ease-in-out;
+                            cursor: pointer;
+                            font: normal normal 2.5vh Georgia, serif;
+                            display: inline-block;
+                            padding: 10px 20px;
+                            border-radius: 20px;
+                        }
+
+                        li:hover {
+                            background-color: black;
+                            color: white;
+                        }
+                    }
+                }
+
+                /* 侧边栏 */
+                .leftBar {
+                    opacity: 0;
+                    /* 初始透明度为0 */
+                    transform: translateX(-100%);
+                    /* 在视图外 */
+                    transition: opacity 2s ease-out, transform 2s ease-out;
+                    margin-top: 10%;
+                    height: 50%;
+                    width: 25%;
+
+                    h2 {
+                        display: block;
+                        font-weight: 500;
+                        font-size: large;
+                        text-align: right;
+                    }
+
+                    h1 {
+                        position: relative;
+                        top: -65px;
+                        display: block;
+                        font-size: 150px;
+                    }
+
+                    p {
+                        position: relative;
+                        top: -80px;
+                        right: -15px;
+                        font: normal right 3vh Georgia, serif;
+                    }
+                }
+
+                /* 底部栏 */
+                .bottomBar {
+                    position: relative;
+                    opacity: 0;
+                    /* 初始透明度为0 */
+                    transform: translateY(100%);
+                    transition: opacity 2s ease-out, transform 2s ease-out;
+                    width: 100%;
+                    height: 23%;
+
+                    .Text {
+                        padding-top: 6%;
+                        margin: auto;
+                        width: 20%;
+                        height: 100%;
+
+                        p {
+                            color: gray;
+                            text-align: center;
+                        }
+
+                        .bounce {
+                            position: relative;
+                            top: 10px;
+                            animation: move 1s infinite;
+                            display: block;
+                            margin: auto;
+                        }
+                    }
+                }
+            }
+
+
+            .two {
+                .twoLeftBar {
+                    opacity: 0;
+                    /* 初始透明度为0 */
+                    transform: translateX(-100%);
+                    /* 在视图外 */
+                    transition: opacity 2s ease-out, transform 1s ease-out;
+                    width: 30%;
+                    height: 100%;
+
+                    .twoTitle {
+                        padding: 5%;
+                        width: 100%;
+                        height: 50%;
+
+                        h2 {
+                            display: inline-block;
+                            font-weight: 400;
+                            font-size: 18px;
+                            width: 100%;
+                        }
+
+                        h1 {
+                            display: inline-block;
+                            line-height: 8vh;
+                            overflow-wrap: break-word;
+                            color: #be1921;
+                            font-size: 12vh;
+                            width: 100%;
+                        }
+
+                        p {
+                            display: inline-block;
+                            font-size: 18px;
+                            font-weight: 300;
+                            line-height: normal;
+                            padding: 2%;
+                            width: 100%;
+                        }
+                    }
+
+                    .twoImgReg {
+                        padding: 5%;
+                        width: 100%;
+                        height: 50%;
+
+                        img {
+                            margin-top: 5%;
+                            border-radius: 15px;
+                            width: 80%;
+                        }
+
+                        svg {
+                            margin-top: 8%;
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+
+            .three {
+                opacity: 0;
+                transition: opacity 2s ease-out;
+                display: flex;
+                flex-direction: row;
+
+                .section {
+                    width: 75%;
+                    height: 100%;
+                }
+
+                .threeTitle {
+                    .section {
+                        width: 100%;
+                        height: 60%;
+                    }
+
+                    h2 {
+                        font: normal 500 24px Georgia, serif;
+                    }
+
+                    p {
+                        font: normal 300 18px 微软雅黑;
+
+                        a {
+                            font-weight: 700;
+                            margin-left: 3%;
+                        }
+                    }
+
+                    padding: 1%;
+                    width: 25%;
+                    height: 100%;
+                }
+            }
+
+            /* 画板 */
+            canvas {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: -1;
+            }
+
+            /* 加载图 */
+            #Load {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                height: 100%;
+                position: fixed;
+                z-index: 5;
+
+                p {
+                    color: red;
+                    font: normal 700 3vh Georgia, serif;
+                }
+
+                progress {
+                    width: 60%;
+                }
+            }
+        }
+    </style>
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+                "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+              }
+        }
+    </script>
+
+</head>
+
+<body>
+    <div id="Motorcycle">
+        <div id="Load">
+            <p>POLICE MOTORCYCLE</p>
+            <progress id="progress" max="1000" value="0" />
+        </div>
+        <!-- 首页 -->
+        <section class="one">
+            <!-- 导航栏 -->
+            <div class="topBar">
+                <div class="leftName">POLICE</div>
+                <ul>
+                    <li>Features</li>
+                    <li>Experience it</li>
+                    <li>Buy now</li>
+                </ul>
+            </div>
+            <!-- 侧边栏 -->
+            <div class="leftBar">
+                <h2>Always shoot like a</h2>
+                <h1>Pro</h1>
+                <p>
+                    Police motorcycle, often referred to as a police bike or a motorbike used by law enforcement, is a
+                    specialized type of motorcycle designed and equipped for use by police officers in various law
+                    enforcement duties.
+                </p>
+            </div>
+            <!-- 底部栏 -->
+            <div class="bottomBar">
+                <div class="Text">
+                    <p>Start scrolling to explores</p>
+                    <svg class="bounce" width="36" height="36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M18 33a15 15 0 1 0 0-30 15 15 0 0 0 0 30Z" stroke="#929292" stroke-linecap="round"
+                            stroke-linejoin="round"></path>
+                        <path d="m12 18 6 6 6-6M18 12v12" stroke="#929292" stroke-linecap="round"
+                            stroke-linejoin="round"></path>
+                    </svg>
+                </div>
+            </div>
+        </section>
+        <!-- 第二页 -->
+        <section class="two">
+            <!-- 左侧栏 -->
+            <div class="twoLeftBar">
+                <!-- 标题栏 -->
+                <div class="twoTitle">
+                    <h2>Outstanding</h2>
+                    <h1>Performance</h1>
+                    <p> Police motorcycles offer significant advantages in law enforcement, including unparalleled speed
+                        and mobility, high visibility as a deterrent, cost-effectiveness, agility in accessing difficult
+                        areas, enhanced community engagement, reduced environmental impact, and tactical advantages in
+                        rapid deployments and pursuit operations.
+                    </p>
+                </div>
+                <div class="twoImgReg">
+                    <img src="./image.png">
+                    <svg id="twoSVG" width="195" height="26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M33.8 4.6a4.2 4.2 0 0 0-2.9-3C28.3 1 18 1 18 1S7.7 1 5.1 1.7a4.2 4.2 0 0 0-3 3 43.5 43.5 0 0 0 0 16 4.2 4.2 0 0 0 3 2.8c2.6.7 12.9.7 12.9.7s10.3 0 12.9-.7a4.2 4.2 0 0 0 3-3 43.5 43.5 0 0 0 0-15.9v0Z"
+                            stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="m14.6 17.5 8.7-4.9-8.7-4.9v9.8Z" stroke="#000" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round"></path>
+                        <text x="45" y="20" font-family="Arial" font-size="20" fill="#000">Motorcycle</text>
+                    </svg>
+                </div>
+            </div>
+        </section>
+        <!-- 第三页 -->
+        <section class="three">
+            <div class="section"></div>
+            <div class="threeTitle">
+                <div class="section"></div>
+                <h2>author:bai</h2>
+                <p>The source of the 3D model from<a
+                        href="https://sketchfab.com/3d-models/harley-davidson-police-79dc00298bf449d7bcfdf6eb32bd15ac">here</a>
+                </p>
+                <p> The source of ambient map from <a href="https://polyhaven.com/zh/a/shanghai_bund">here</a></p>
+            </div>
+        </section>
+    </div>
+    <script type="module">
+        import * as THREE from 'three';
+        import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+        import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+        import { RGBELoader } from 'three/addons/loaders/RGBELoader.js';
+        const topBar = document.getElementsByClassName('topBar')[0];
+        const leftBar = document.getElementsByClassName('leftBar')[0];
+        const bottomBar = document.getElementsByClassName('bottomBar')[0];
+        const twoSVG = document.getElementById('twoSVG')
+        const twoLeftBar = document.getElementsByClassName('twoLeftBar')[0];
+        const three = document.getElementsByClassName('three')[0]
+        let showBar = false, rotate = 0, model
+        // 定义场景
+        const scene = new THREE.Scene();
+        // 定义相机
+        const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 3000)
+        // 定义环境光
+        const light = new THREE.PointLight(0x404040, 200, 0, 0)
+        light.position.set(1, 30, 30)
+        scene.add(light)
+        // 定义渲染器
+        const renderer = new THREE.WebGLRenderer()
+        renderer.toneMapping = THREE.ACESFilmicToneMapping; // 使用 ACES 电影级色调映射
+        renderer.toneMappingExposure = 1; // 调整曝光强度
+        renderer.outputEncoding = THREE.sRGBEncoding; // 确保颜色正确编码
+        // 相机控件
+        const controls = new OrbitControls(camera, renderer.domElement);
+        // GLTF加载器
+        const loader = new GLTFLoader();
+        // HDR环境贴图加载器
+        const rgbeLoader = new RGBELoader();
+        rgbeLoader.load('./city.hdr', (texture) => {
+            // 设置环境的映射类型
+            texture.mapping = THREE.EquirectangularReflectionMapping
+            scene.background = new THREE.Color(0xFFFFFF)//设置为背景
+            scene.environment = texture//设置为环境贴图
+        })
+        // 画板
+        const canvas = document.getElementById('Motorcycle')
+        const progress = document.getElementById('progress')
+        const load = document.getElementById('Load')
+        loader.load('./Motorcycle.glb', (glb) => {
+            showBar = true
+            canvas.removeChild(load)
+            glb.scene.scale.set(0.01, 0.01, 0.01)
+            model = glb.scene
+            scene.add(glb.scene);
+            renderer.render(scene, camera)
+            canvas.appendChild(renderer.domElement)
+        },
+            (xhr) => {
+                // 加载进度回调
+                if (xhr.lengthComputable) {
+                    const percentComplete = (xhr.loaded / xhr.total) * 1000;
+                    progress.value = Math.round(percentComplete)
+                }
+            })
+
+        // 创建一个对象来存储相机位置
+        const cameraPosition = {
+            x: camera.position.x,
+            y: camera.position.y,
+            z: camera.position.z
+        };
+        const lookAtPosition = {
+            x: controls.target.x,
+            y: controls.target.y,
+            z: controls.target.z
+        };
+
+        const pos = [
+            // 初始位置
+            { 'camera': new THREE.Vector3(14.3, 8.8, 15), 'controls': new THREE.Vector3(-5.5, 4.53, 3.62) },
+            // 第二页位置
+            { 'camera': new THREE.Vector3(32.63, 0.97, 1.35), 'controls': new THREE.Vector3(0.178, 6.47, 0.69) }
+        ]
+        // 定义三维贝塞尔曲线
+        const curve = new THREE.CubicBezierCurve3(
+            pos[0].camera,
+            new THREE.Vector3(20, 5, 10), // 控制点1
+            new THREE.Vector3(25, 3, 5),  // 控制点2
+            pos[1].camera,
+        )
+        const curveControls = new THREE.CubicBezierCurve3(
+            pos[0].controls,
+            new THREE.Vector3(-2, 4, 3), // 控制点1
+            new THREE.Vector3(5, 5, 4),  // 控制点2
+            pos[1].controls,
+        )
+        const height = (Math.floor(canvas.scrollHeight / 3) / 1000)
+
+        // 第一个界面动态函数
+        function removeText(t) {
+            t = ((t / 7) * 10).toFixed(2)
+            if (t > 1) t = 1
+            if (t <= 1 && showBar) {
+                topBar.style.opacity = 1 - t
+                topBar.style.transform = `translateY(${-t * 100}%)`
+                leftBar.style.opacity = 1 - t
+                leftBar.style.transform = `translateX(${-t * 100}%)`
+                bottomBar.style.opacity = 1 - t
+                bottomBar.style.transform = `translateY(${t * 100}%)`
+
+                twoLeftBar.style.opacity = t
+                twoLeftBar.style.transform = `translateX(${-(1 - t) * 100}%)`
+                if (rotate != 0) {
+                    model.rotation.y -= 0.002
+                    rotate--
+                }
+            }
+
+        }
+        //动态函数
+        function removeTwo(t) {
+            t = ((t / 7) * 10).toFixed(2)
+            if (t > 1) t = 1
+            if (showBar) {
+                three.style.opacity = t
+                rotate++
+                model.rotateY(0.002)
+            }
+        }
+
+        // 监听跳转视频
+        twoSVG.addEventListener('click', () => {
+            const url = 'https://www.youtube.com/watch?v=OcldSmw1g-o'
+            // 进行跳转相关页
+            window.location.href = url
+        })
+        // 动画渲染
+        function Frame() {
+            // 根据 t 获取贝塞尔曲线上的点
+            const t = (canvas.scrollTop / 1000).toFixed(3); // 滚动刻度
+            if (t <= height) {
+                const position = curve.getPointAt(t); // 获取曲线上的点
+                const positionControls = curveControls.getPointAt(t); // 获取曲线上的点
+                camera.position.copy(position); // 相机位置设置为曲线上的点
+                controls.target.set(positionControls.x, positionControls.y, positionControls.z)
+                removeText(t)
+            } else if (t <= height * 2) {
+                removeTwo(t)
+            }
+            camera.aspect = window.innerWidth / window.innerHeight
+            camera.updateProjectionMatrix()
+            controls.update();
+            renderer.setSize(window.innerWidth, window.innerHeight, false)
+            renderer.render(scene, camera)
+            requestAnimationFrame(Frame);
+        }
+
+        Frame()
+    </script>
+</body>
+
+</html>
