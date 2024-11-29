@@ -1,11 +1,11 @@
 ## threeJs-H5-example
 基于H5仿threejs案例（canon相机）的简化板
 
-## 来源
+# 来源
 
-# 说明
+## 说明
   
-  相关材料模型基于CC协议，使用前请去相关网站查看详情信息
+相关材料模型基于CC协议，使用前请去相关网站查看详情信息
   
 3D模型地址：[地址](https://sketchfab.com/3d-models/harley-davidson-police-79dc00298bf449d7bcfdf6eb32bd15ac)
 
@@ -18,3 +18,6 @@
 `npm install http-server -g` --安装http-server
 
 `http-server -p 8080` --通过8080端口访问html文件
+
+### 演示地址
+[地址](http://47.109.193.125)
